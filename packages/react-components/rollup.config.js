@@ -1,9 +1,7 @@
-// rollup.config.js
 import typescript from '@rollup/plugin-typescript';
 import babel from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import dts from 'rollup-plugin-dts';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
@@ -28,7 +26,7 @@ const commonConfig = ({declarationDir}) => ({
 
 export default [
   {
-    ...commonConfig({ declarationDir: './es/types' }),
+    ...commonConfig({ declarationDir: './es' }),
     output: {
       dir: 'es',
       format: 'esm',
@@ -37,7 +35,7 @@ export default [
     },
   },
   {
-    ...commonConfig({ declarationDir: './lib/types' }),
+    ...commonConfig({ declarationDir: './lib' }),
     output: {
       dir: 'lib',
       format: 'cjs',
